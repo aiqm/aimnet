@@ -14,7 +14,7 @@ This repository contains reference AIMNet implementation along with some example
 
 
 ## Citation
-Accurate and transferable multitask prediction of chemical properties with an atoms-in-molecule neural network
+Accurate and transferable multitask prediction of chemical properties with an atoms-in-molecules neural network
 
 Roman Zubatyuk, Justin S. Smith, Jerzy Leszczynski, Olexandr Isayev
 _Science Advances_  *2019*: Vol. 5, no. 8, eaav6490 [DOI: 10.1126/sciadv.aav6490](https://advances.sciencemag.org/content/5/8/eaav6490)
