@@ -1,0 +1,48 @@
+module: aimnet.models.AIMNetMT
+kwargs:
+  modules:
+    - name: aev
+      _include: aev.yaml
+
+    - name: aimnet
+      _include: aimnet.yaml
+
+    - name: energy
+      module: aimnet.modules.MLPBlock
+      kwargs:
+        sizes: [128, 128, 128, 1]
+        activation: ELU
+        last_linear: True
+
+    - name: elmoments
+      module: aimnet.modules.MLPBlock
+      kwargs:
+        sizes: [128, 128, 128, 4]
+        activation: ELU
+        last_linear: True
+
+    - name: volume
+      module: aimnet.modules.MLPBlock
+      kwargs:
+        sizes: [128, 128, 128, 1]
+        activation: ELU
+        last_linear: True
+
+  parameters:
+    - name: scale_energy
+      value: [0.0942]
+    - name: shift_energy
+      value: [-0.60301761, -38.09413832, -54.73224523, -75.23165724, -398.19005793,
+              -99.85709063, -460.2047288]
+      dtype: double
+
+    - name: scale_elmoments
+      value: [0.376, 0.126, 0.465, 1.33]
+
+    - name: scale_volume
+      value: [47.44]
+
+  variables:
+    output_modules: [energy, elmoments, volume]
+
+

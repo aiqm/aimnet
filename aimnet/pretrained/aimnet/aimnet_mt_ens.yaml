@@ -1,0 +1,13 @@
+module: aimnet.models.EnsembledAIMNetMT
+kwargs:
+  modules:
+    - name: aimnet_0
+      _include: aimnet_mt.yaml
+    - name: aimnet_1
+      _include: aimnet_mt.yaml
+    - name: aimnet_2
+      _include: aimnet_mt.yaml
+    - name: aimnet_3
+      _include: aimnet_mt.yaml
+    - name: aimnet_4
+      _include: aimnet_mt.yaml

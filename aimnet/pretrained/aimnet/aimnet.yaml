@@ -1,0 +1,23 @@
+module: aimnet.modules.AIMNet
+kwargs:
+  modules:
+    - name: embed
+      _include: embed.yaml
+
+    - name: update_mlp
+      module: aimnet.modules.MLPBlock
+      kwargs:
+        sizes: [272, 256, 256, 16]
+        activation: ELU
+        last_linear: True
+
+    - name: interact_mlp
+      module: aimnet.modules.MLPBlock
+      kwargs:
+        sizes: [272, 256, 256, 128]
+        activation: ELU
+        last_linear: False
+
+  variables:
+    npass: 3
+

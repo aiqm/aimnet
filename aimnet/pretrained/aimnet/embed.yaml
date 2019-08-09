@@ -1,0 +1,23 @@
+module: aimnet.modules.AIMNetEmbed
+kwargs:
+  modules:
+    - name: combine_mlp
+      module: aimnet.modules.MLPBlock
+      kwargs:
+        sizes: [32, 256, 128, 16]
+        activation: ELU
+        last_linear: False
+
+    - name: embedding_mlp
+      module: aimnet.modules.MLPBlock
+      kwargs:
+        sizes: [768, 512, 256, 256]
+        activation: ELU
+        last_linear: False
+
+  parameters:
+    - name: implemented_elements
+      value: [1, 6, 7, 8, 16, 9, 17]
+
+  variables:
+    nfeature: 16
