@@ -254,7 +254,7 @@ class AIMNet(ConfiguredModule):
 
 
 def triu_mask(n, device, diagonal=1):
-    mask = torch.ones(n, n, device=device, dtype=torch.uint8)
+    mask = torch.ones(n, n, device=device, dtype=torch.bool)
     mask = torch.triu(mask, diagonal=diagonal)
     return mask
 
