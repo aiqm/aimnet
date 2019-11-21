@@ -102,7 +102,7 @@ class ANIAEV(ConfiguredModule):
         """
         N = dmat.shape[-1]
         fcr = cosine_cutoff(dmat, self.Rcr)
-        fcr[..., torch.eye(N, device=fcr.device, dtype=torch.uint8)] *= 0.0
+        fcr[..., torch.eye(N, device=fcr.device, dtype=torch.bool)] *= 0.0
         shifts = (dmat[:, :, None, :] - self.ShfR).pow(2)
         gr = torch.exp(-self.EtaR * shifts) * fcr[:, :, None, :]
         return gr
@@ -131,7 +131,7 @@ class ANIAEV(ConfiguredModule):
 
         # cutoff part
         fca = cosine_cutoff(dmat, self.Rca)
-        fca[..., torch.eye(N, device=fca.device, dtype=torch.uint8)] *= 0.0
+        fca[..., torch.eye(N, device=fca.device, dtype=torch.bool)] *= 0.0
         fca_ijk = fca[:, :, :, None] * fca[:, :, None, :]
         fca_ijk = torch.masked_select(fca_ijk, nnmask).view(B, N, nnsize)
 
